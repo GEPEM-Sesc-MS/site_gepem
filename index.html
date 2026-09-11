@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portal demonstrativo de indicadores de Mato Grosso do Sul, com painéis temáticos de inteligência econômica.">
+  <title>Observatório Econômico MS</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23152f57'/%3E%3Cpath d='M8 24V16M16 24V8M24 24V12' stroke='%23f5bb50' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Ir para o painel</a>
+  <header class="header">
+    <div class="brand">
+      <span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span>
+      <img id="logo" alt="" hidden>
+      <div><strong><span id="nome"></span> <span class="state" id="sigla"></span></strong></div>
+    </div>
+    <div class="header-right"><span class="prototype" id="selo"></span><div class="actions"><a id="abrir" target="_blank" rel="noopener noreferrer">Abrir relatório <span aria-hidden="true">↗</span></a><button id="expandir" aria-pressed="false">Ampliar painel <span aria-hidden="true">⛶</span></button></div></div>
+  </header>
+  <div class="shell">
+    <aside class="sidebar" aria-label="Navegação temática">
+      <div class="sidebar-heading"><span>EXPLORE OS TEMAS</span><button id="menu-toggle" aria-expanded="false" aria-controls="menu">Mostrar temas</button></div>
+      <nav id="menu" aria-label="Painéis por tema"></nav>
+      <div class="sidebar-footer">
+        <p id="fonte" class="source-credit"></p>
+        <details class="panel-info"><summary>Sobre este painel</summary><div class="panel-info-content"><p id="descricao"></p><p id="nota"></p><p id="embed-help" hidden>Se o conteúdo não aparecer, use “Abrir relatório”.</p><p id="subtitulo"></p><p id="rodape"></p></div></details>
+      </div>
+    </aside>
+    <main id="conteudo" tabindex="-1">
+      <h1 id="titulo" class="sr-only"></h1>
+      <section class="report-card" aria-label="Visualização do relatório">
+        <div id="report-stage" class="report-stage">
+          <p id="loading" role="status" hidden>Carregando relatório…</p>
+          <!-- IFRAME PRINCIPAL: app.js preenche o src com o campo url de config.js. -->
+          <iframe id="powerbi-frame" title="Relatório Power BI" allow="fullscreen" allowfullscreen hidden></iframe>
+          <div id="empty" class="empty" hidden><div class="empty-symbol" aria-hidden="true">▥</div><span class="eyebrow">ACERVO DE INDICADORES</span><h2>Painel em preparação</h2><p>Este tema fará parte do observatório.<br>Os indicadores serão disponibilizados nesta área.</p></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <noscript>Ative o JavaScript no navegador para navegar pelos painéis.</noscript>
+</body>
+</html>
